@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}List Server{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <table>
+    <th>
+        <td>Hostname</td>
+        <td>Instance Name</td>
+        <td>Is Active</td>
+    </th>
+    {% for srv in servers %}
+    <tr>
+        <td>srv.hostname</td>
+        <td>srv.instancename</td>
+        <td>srv.active</td>
+    <tr>
+    {% endfor %}
+    </table>
+{% endblock %}

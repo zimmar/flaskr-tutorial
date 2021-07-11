@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS user;
 DROP TABLE IF EXISTS post;
+DROP TABLE IF EXISTS cfg_servers;
 
 CREATE TABLE user (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -14,4 +15,17 @@ CREATE TABLE post (
   title TEXT NOT NULL,
   body TEXT NOT NULL,
   FOREIGN KEY (author_id) REFERENCES user (id)
+);
+
+CREATE TABLE cfg_servers (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  hostname TEXT NOT NULL,
+  instance_name TEXT NOT NULL,
+  created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  description TEXT NOT NULL,
+  ip TEXT,
+  port INTEGER,
+  active INTEGER,
+  library_client INTEGER,
+  'default' INTEGER
 );
